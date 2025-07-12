@@ -1,0 +1,21 @@
+body {
+    padding: 30px;
+    border: 1cm solid #101294;
+    background-color: #c8c8db;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    background-repeat: repeat;
+    background-size: auto;
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 100vh;
+}
+.upload-box {
+    border: 2px dashed #6c757d;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+.form-label {
+    font-weight: bold;
+}
