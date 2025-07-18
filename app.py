@@ -5,6 +5,16 @@ from werkzeug.utils import secure_filename
 import io
 import pandas as pd
 from fpdf import FPDF
+import nltk
+from nltk.corpus import wordnet
+
+# === Auto-download NLTK data if missing ===
+try:
+    wordnet.synsets('test')
+except LookupError:
+    nltk.download('wordnet')
+    nltk.download('stopwords')
+    nltk.download('omw-1.4')
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
@@ -38,9 +48,9 @@ def compare():
     for student_file in student_files:
         filename = secure_filename(student_file.filename)
 
-        #Change made to accpet only .txt files
+        # Accept only .txt files
         if not filename.lower().endswith(".txt"):
-            print ( f"Skipped file: {filename} (Invalid file type)" )
+            print(f"Skipped file: {filename} (Invalid file type)")
             continue
 
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -96,8 +106,9 @@ def download_report():
             pdf.cell(80, 10, txt=verdict, border=1)
             pdf.ln()
 
+        pdf_output = io.BytesIO()
         pdf_bytes = pdf.output(dest='S').encode('latin1')
-        pdf_output = io.BytesIO(pdf_bytes)
+        pdf_output.write(pdf_bytes)
         pdf_output.seek(0)
 
         return send_file(
@@ -117,7 +128,25 @@ def read_file(path):
         print(f"Error reading file {path}: {e}")
         return ""
 
+# === Text Preprocessing + Synonym Normalization ===
+def synonym_normalize(text):
+    words = text.split()
+    normalized = []
+
+    for word in words:
+        synsets = wordnet.synsets(word)
+        if synsets:
+            lemma = synsets[0].lemmas()[0].name().replace('_', ' ')
+            normalized.append(lemma.lower())
+        else:
+            normalized.append(word.lower())
+
+    return ' '.join(normalized)
+
 def calculate_similarity(text1, text2):
+    text1 = synonym_normalize(text1)
+    text2 = synonym_normalize(text2)
+
     sequence = difflib.SequenceMatcher(None, text1, text2)
     return round(sequence.ratio() * 100, 2)
 
