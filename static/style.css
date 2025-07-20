@@ -1,21 +1,136 @@
+/* Background: Deep sea inspired gradient */
 body {
-    padding: 30px;
-    border: 1cm solid #101294;
-    background-color: #c8c8db;
-    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-    background-repeat: repeat;
-    background-size: auto;
-    box-sizing: border-box;
-    margin: 0;
-    min-height: 100vh;
+    background: linear-gradient(135deg, #001f3f, #005377, #00a8cc);
+    font-family: 'Segoe UI', sans-serif;
+    color: #003973; /* Default text color */
 }
-.upload-box {
-    border: 2px dashed #6c757d;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.85);
-}
-.form-label {
+
+/* Title: SIMILASCAN */
+.title {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff; /* White for contrast */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    font-size: 2.8em;
     font-weight: bold;
+}
+
+/* Upload boxes */
+.upload-box {
+    background: rgba(255,255,255,0.85);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+}
+
+/* File inputs */
+.file-input {
+    background-color: rgba(255,255,255,0.95);
+    border: 1px solid #ccc;
+    color: #003973;
+    padding: 8px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #4ecdc4; /* Seafoam green */
+    border: none;
+    color: #003973; /* Deep blue text */
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #65d6d0;
+    color: #001c55;
+}
+
+.btn-success, .btn-danger, .btn-secondary {
+    opacity: 0.9;
+    font-weight: bold;
+}
+
+/* Progress bar */
+.progress-bar {
+    background-color: #198754; /* Bootstrap green */
+}
+
+/* Instructions box */
+#instructions {
+    background: rgba(255,255,255,0.85);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #003973;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Tables */
+.table {
+    background: rgba(255, 255, 255, 0.95);
+    color: #003973;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Comparison Blocks (Detailed View) */
+.comparison-block {
+    background: rgba(255,255,255,0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Code/Preformatting */
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.95em;
+}
+
+/* Diff styles for line-by-line comparison */
+.match {
+    background-color: #d4edda; /* Light green for matched text */
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.diff {
+    background-color: #f8d7da; /* Light red for different text */
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Links */
+a {
+    color: #4ecdc4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer or extra spacing */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #ffffffaa;
+    font-size: 0.9em;
+}
+
+.results-title {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff; /* White text for contrast */
+    text-transform: uppercase; /* Make it ALL CAPS */
+    font-weight: bold;
+    font-size: 2em;
+    text-shadow: 0 0 8px rgba(0,0,0,0.5); /* Subtle shadow for better visibility */
 }
