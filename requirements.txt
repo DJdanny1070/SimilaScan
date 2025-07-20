@@ -1,4 +1,10 @@
-flask
-pandas
-fpdf
+Flask
 Werkzeug
+pandas
+openpyxl
+fpdf
+nltk
+pytesseract
+Pillow
+pdfplumber
+python-docx
